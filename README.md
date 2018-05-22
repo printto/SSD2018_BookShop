@@ -9,9 +9,6 @@ This application follows [this programming guide](http://theory.cpe.ku.ac.th/wik
 
 The program is currently in Phase 2, according to the guide.
 
-## Documentations
-- Soon...
-
 ## Group members
 - Pappim Pipatkasrira
 - Poorin Pichayamongkol
