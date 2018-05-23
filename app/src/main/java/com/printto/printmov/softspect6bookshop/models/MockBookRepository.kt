@@ -11,9 +11,9 @@ class MockBookRepository : BookRepository(){
 
     override fun loadAllBooks() {
         bookList.clear()
-        bookList.add(Book(1,"How to win BNK election",500.0))
-        bookList.add(Book(2,"Kotlin is hard",199.0))
-        bookList.add(Book(3,"Wanna Sleep?",39.99))
+        bookList.add(Book(1,"How to win BNK election",500.0,2018))
+        bookList.add(Book(2,"Kotlin is hard",199.0,2018))
+        bookList.add(Book(3,"Wanna Sleep?",39.99,2018))
         setChanged()
         notifyObservers()
     }

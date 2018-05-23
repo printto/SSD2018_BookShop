@@ -10,7 +10,7 @@ class Book(val id: Int,
            val imageURL: String = "") {
 
     override fun toString(): String {
-        return "${title} (${price})";
+        return "${title}, ${publicationYear} (${price})";
     }
 
 }

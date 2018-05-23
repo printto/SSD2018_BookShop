@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="No sorting" />
+
+    <item
+        android:title="Sort by title A-Z" />
+
+    <item
+        android:title="Sort by year 1-10" />
+
+    <item
+        android:title="Sort by title Z-A" />
+
+    <item
+        android:title="Sort by year 10-1" />
+
+</menu>

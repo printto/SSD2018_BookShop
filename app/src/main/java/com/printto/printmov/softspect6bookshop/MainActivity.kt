@@ -1,22 +1,18 @@
 package com.printto.printmov.softspect6bookshop
 
-import android.content.pm.PackageManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
-import android.widget.EditText
 import com.printto.printmov.softspect6bookshop.models.Book
 import com.printto.printmov.softspect6bookshop.models.MockBookRepository
 import com.printto.printmov.softspect6bookshop.models.OnlineBookRepository
 import com.printto.printmov.softspect6bookshop.presenters.BookPresenter
 import com.printto.printmov.softspect6bookshop.presenters.BookView
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() , BookView {
 
@@ -36,15 +32,8 @@ class MainActivity : AppCompatActivity() , BookView {
 
     override fun setBookList(books: ArrayList<Book>) {
         this.books.clear()
-//        for(book in books){
-//            this.books.add(book.toString())
-//        }
         this.books.addAll(books)
         adapter?.notifyDataSetChanged()
-    }
-
-    fun clearButtonClicked(view: View){
-        search_box.setText("")
     }
 
     class watcher(val presenter: BookPresenter) : TextWatcher{
@@ -56,4 +45,25 @@ class MainActivity : AppCompatActivity() , BookView {
             presenter.search(p0.toString())
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.toolbar_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        var temp = 0
+        when(item.title.toString()){
+            "No sorting" -> temp = 0
+            "Sort by title A-Z" -> temp = 1
+            "Sort by year 1-10" -> temp = 2
+            "Sort by title Z-A" -> temp = 3
+            "Sort by year 10-1" -> temp = 4
+        }
+        setBookList(presenter.sortBook(temp))
+        return true
+        return super.onOptionsItemSelected(item)
+    }
+
 }
